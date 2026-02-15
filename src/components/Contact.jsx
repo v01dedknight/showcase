@@ -1,5 +1,6 @@
-import { HiOutlineMail } from "react-icons/hi";
-import { FaTelegramPlane } from "react-icons/fa";
+import { HiOutlineMail, HiOutlineLightningBolt } from "react-icons/hi";
+import { FaTelegramPlane, FaGithub } from "react-icons/fa";
+import { FiArrowUpRight } from "react-icons/fi";
 
 function Contact() {
   const currentYear = new Date().getFullYear();
@@ -67,13 +68,44 @@ function Contact() {
           </div>
         </div>
 
+        {/* New Section: Professional Resources */}
+        <div className="mb-16 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a 
+            href="https://github.com/v01dedknight" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-4 px-6 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/20 hover:bg-white/[0.04] transition-all group"
+          >
+            <div className="flex items-center gap-4">
+              <FaGithub className="text-gray-500 group-hover:text-white transition-colors" size={20} />
+              <span className="text-gray-400 group-hover:text-white font-medium">GitHub Portfolio</span>
+            </div>
+            <FiArrowUpRight className="text-gray-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+          </a>
+
+          <a 
+            href="https://kwork.ru/website-development/42671859/razrabotka-sayta-pod-klyuch" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-4 px-6 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/20 hover:bg-white/[0.04] transition-all group"
+          >
+            <div className="flex items-center gap-4">
+              {/* Используем молнию (символ скорости/энергии фриланса) */}
+              <HiOutlineLightningBolt className="text-gray-500 group-hover:text-[#19c37d] transition-colors" size={20} />
+              <span className="text-gray-400 group-hover:text-white font-medium">Kwork Profile</span>
+            </div>
+            <FiArrowUpRight className="text-gray-600 group-hover:text-[#19c37d] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+          </a>
+        </div>
+
         {/* Bottom: Copyright */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm font-medium tracking-widest">
+          <p className="text-gray-500 text-sm font-medium tracking-widest uppercase">
             v01d {currentYear}.
           </p>
-          <div className="flex gap-6 text-gray-500 text-sm">
+          <div className="flex gap-6 text-gray-500 text-xs font-bold uppercase tracking-tighter">
             <span className="hover:text-white cursor-default transition-colors">Frontend Developer</span>
+            <span className="text-gray-800">|</span>
           </div>
         </div>
       </div>
