@@ -10,3 +10,16 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+@keyframes progressAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation-name: progressAnimation;
+}
