@@ -6,79 +6,82 @@ function Contact() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 border-t border-white/5 pt-20 pb-10 px-6">
+    <footer className="bg-gray-900 border-t border-white/5 pt-16 sm:pt-20 pb-10 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center mb-12 sm:mb-16">
           
           {/* Left side: Text */}
-          <div>
-            <h2 className="text-4xl font-bold text-white mb-6">Свяжитесь со мной</h2>
-            <p className="text-gray-400 text-lg max-w-md leading-relaxed mb-8">
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
+              Свяжитесь со мной
+            </h2>
+            <p className="text-gray-400 text-base sm:text-lg max-w-md mx-auto md:mx-0 leading-relaxed mb-6 sm:mb-8">
               Всегда открыт для новых предложений и интересных проектов. 
               Пишите, обсудим вашу идею!
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 text-green-400 text-sm font-medium rounded-full border border-green-500/20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 text-green-400 text-[10px] sm:text-xs font-medium rounded-full border border-green-500/20">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              Оперативно отвечаю с 10:00 до 18:00 МСК
+              На связи с 10:00 до 18:00 МСК
             </div>
           </div>
 
-          {/* Right side: Link buttons */}
-          <div className="flex flex-col gap-4">
+          {/* Right side: Main communication buttons */}
+          <div className="flex flex-col gap-3 sm:gap-4">
             <a 
               href="https://t.me/rejectsociety" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-purple-600 transition-all duration-500 shadow-xl"
+              className="group flex items-center justify-between p-4 sm:p-6 bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl hover:bg-purple-600 transition-all duration-500 shadow-xl"
             >
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-purple-500/20 rounded-xl group-hover:bg-white/20 transition-colors">
-                  <FaTelegramPlane className="text-purple-400 group-hover:text-white" size={24} />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-purple-500/20 rounded-lg sm:rounded-xl group-hover:bg-white/20 transition-colors">
+                  <FaTelegramPlane className="text-purple-400 group-hover:text-white transition-colors" size={20} />
                 </div>
                 <div>
-                  <p className="text-white font-bold text-lg">Telegram</p>
-                  <p className="text-gray-400 group-hover:text-purple-100 text-sm">Быстрый ответ в чате</p>
+                  <p className="text-white font-bold text-sm sm:text-lg">Telegram</p>
+                  <p className="text-gray-400 group-hover:text-purple-100 text-[10px] sm:text-sm">Быстрый ответ в чате</p>
                 </div>
               </div>
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity pr-2 text-white">
+              {/* Hide the arrow on very small screens so that the text does not appear in two lines. */}
+              <div className="hidden xs:block opacity-0 group-hover:opacity-100 transition-opacity pr-2 text-white">
                 →
               </div>
             </a>
 
             <a 
               href="mailto:artur_freelance@mail.ru" 
-              className="group flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-blue-600 transition-all duration-500 shadow-xl"
+              className="group flex items-center justify-between p-4 sm:p-6 bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl hover:bg-blue-600 transition-all duration-500 shadow-xl"
             >
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-blue-500/20 rounded-xl group-hover:bg-white/20 transition-colors">
-                  <HiOutlineMail className="text-blue-400 group-hover:text-white" size={24} />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-blue-500/20 rounded-lg sm:rounded-xl group-hover:bg-white/20 transition-colors">
+                  <HiOutlineMail className="text-blue-400 group-hover:text-white transition-colors" size={20} />
                 </div>
                 <div>
-                  <p className="text-white font-bold text-lg">Email</p>
-                  <p className="text-gray-400 group-hover:text-blue-100 text-sm">Для официальных запросов</p>
+                  <p className="text-white font-bold text-sm sm:text-lg">Email</p>
+                  <p className="text-gray-400 group-hover:text-blue-100 text-[10px] sm:text-sm">Для официальных запросов</p>
                 </div>
               </div>
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity pr-2 text-white">
+              <div className="hidden xs:block opacity-0 group-hover:opacity-100 transition-opacity pr-2 text-white">
                 →
               </div>
             </a>
           </div>
         </div>
 
-        {/* New Section: Professional Resources */}
-        <div className="mb-16 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Resource Section: 1-in-a-row grid on mobile, 2-in-a-row grid on desktop */}
+        <div className="mb-12 sm:mb-16 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <a 
             href="https://github.com/v01dedknight" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-between p-4 px-6 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/20 hover:bg-white/[0.04] transition-all group"
+            className="flex items-center justify-between p-4 px-5 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/20 hover:bg-white/[0.04] transition-all group"
           >
-            <div className="flex items-center gap-4">
-              <FaGithub className="text-gray-500 group-hover:text-white transition-colors" size={20} />
-              <span className="text-gray-400 group-hover:text-white font-medium">GitHub Portfolio</span>
+            <div className="flex items-center gap-3">
+              <FaGithub className="text-gray-500 group-hover:text-white transition-colors" size={18} />
+              <span className="text-gray-400 group-hover:text-white text-sm font-medium">GitHub Портфолио</span>
             </div>
             <FiArrowUpRight className="text-gray-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
           </a>
@@ -87,25 +90,23 @@ function Contact() {
             href="https://kwork.ru/user/v01dedknight" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-between p-4 px-6 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/20 hover:bg-white/[0.04] transition-all group"
+            className="flex items-center justify-between p-4 px-5 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/20 hover:bg-white/[0.04] transition-all group"
           >
-            <div className="flex items-center gap-4">
-              {/* Lightning Icon */}
-              <HiOutlineLightningBolt className="text-gray-500 group-hover:text-[#19c37d] transition-colors" size={20} />
-              <span className="text-gray-400 group-hover:text-white font-medium">Kwork Profile</span>
+            <div className="flex items-center gap-3">
+              <HiOutlineLightningBolt className="text-gray-500 group-hover:text-[#19c37d] transition-colors" size={18} />
+              <span className="text-gray-400 group-hover:text-white text-sm font-medium">Kwork Профиль</span>
             </div>
             <FiArrowUpRight className="text-gray-600 group-hover:text-[#19c37d] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
           </a>
         </div>
 
-        {/* Bottom: Copyright */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm font-medium tracking-widest uppercase">
+        {/* Copyright: Centered on mobile devices */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500 text-[10px] sm:text-sm font-medium tracking-widest uppercase">
             v01d {currentYear}.
           </p>
-          <div className="flex gap-6 text-gray-500 text-xs font-bold uppercase tracking-tighter">
-            <span className="hover:text-white cursor-default transition-colors">Frontend Developer</span>
-            <span className="text-gray-800">|</span>
+          <div className="flex gap-4 sm:gap-6 text-gray-500 text-[10px] font-bold uppercase tracking-tighter">
+            <span className="hover:text-white cursor-default transition-colors">Front-end Разработчик</span>
           </div>
         </div>
       </div>
