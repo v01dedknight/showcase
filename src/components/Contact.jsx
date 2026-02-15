@@ -84,13 +84,13 @@ function Contact() {
           </a>
 
           <a 
-            href="https://kwork.ru/website-development/42671859/razrabotka-sayta-pod-klyuch" 
+            href="https://kwork.ru/user/v01dedknight" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-between p-4 px-6 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/20 hover:bg-white/[0.04] transition-all group"
           >
             <div className="flex items-center gap-4">
-              {/* Используем молнию (символ скорости/энергии фриланса) */}
+              {/* Lightning Icon */}
               <HiOutlineLightningBolt className="text-gray-500 group-hover:text-[#19c37d] transition-colors" size={20} />
               <span className="text-gray-400 group-hover:text-white font-medium">Kwork Profile</span>
             </div>

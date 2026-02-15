@@ -230,8 +230,10 @@ function Projects() {
                 {/* Button */}
                 <a 
                   href={selectedProject.link} 
-                  target="_blank"             // Открывает в новой вкладке
-                  rel="noopener noreferrer"    // Безопасность при открытии сторонних ссылок
+                  // Opens in a new tab
+                  target="_blank"
+                  // Safety when opening third-party links
+                  rel="noopener noreferrer"
                   className="block w-full py-4 bg-white text-black text-center font-bold rounded-2xl hover:bg-purple-500 hover:text-white transition-all duration-300 transform active:scale-[0.98] shadow-lg shadow-white/5"
                 >
                   Смотреть проект
