@@ -23,3 +23,7 @@ body {
 .animate-progress {
   animation-name: progressAnimation;
 }
+
+html {
+  scroll-behavior: smooth !important;
+}
