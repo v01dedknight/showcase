@@ -7,6 +7,8 @@ function About() {
           Большинство компаний до сих пор используют <span className="text-white font-medium">громоздкие и устаревшие решения</span>, которые замедляют работу сайта и отталкивают мобильных пользователей.
         </p>     
         <p className="text-white font-bold border-t border-gray-800 pt-6">
+          <span className="text-white-400 font-semibold">Более 5 лет опыта.</span>
+          <br></br>
           <span className="text-purple-400 font-semibold">Я берусь за проекты любой сложности, и провожу их за руку до конца. </span>
         </p>
       </div>

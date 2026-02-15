@@ -7,7 +7,7 @@ function Hero() {
         </h1>
 
         <p className="text-gray-400 text-lg mb-8">
-          Разрабатываю сайты под ключ для вашего бизнеса.
+          И я разработаю сайт под ключ для вашего бизнеса.
         </p>
 
         <button className="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full transition">
