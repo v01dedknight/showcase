@@ -31,7 +31,7 @@ function Contact() {
           {/* Right side: Main communication buttons */}
           <div className="flex flex-col gap-3 sm:gap-4">
             <a 
-              href="https://t.me/rejectsociety" 
+              href="https://t.me/v01dedknight"
               target="_blank" 
               rel="noopener noreferrer"
               className="group flex items-center justify-between p-4 sm:p-6 bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl hover:bg-purple-600 transition-all duration-500 shadow-xl"
