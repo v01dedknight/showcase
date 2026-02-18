@@ -1,4 +1,6 @@
-function About() {
+import { JSX } from "react";
+
+function About(): JSX.Element {
   return (
     <section className="py-20 px-6 max-w-4xl mx-auto text-center">
       <h2 className="text-3xl font-bold mb-6">Ваш бизнес заслуживает большего</h2>
@@ -8,7 +10,7 @@ function About() {
         </p>     
         <p className="text-white font-bold border-t border-gray-800 pt-6">
           <span className="text-white-400 font-semibold">Более 5 лет опыта.</span>
-          <br></br>
+          <br />
           <span className="text-purple-400 font-semibold">Я берусь за проекты любой сложности, и провожу их за руку до конца. </span>
         </p>
       </div>

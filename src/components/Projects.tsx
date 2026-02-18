@@ -1,15 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, JSX } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import { Project } from "../types";
 
-function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+function Projects(): JSX.Element {
+  // Declaration of states
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
-  const projects = [
+  // The array is typed as Project[]
+  const projects: Project[] = [
     { 
       title: "Архитектурное бюро", 
       desc: "Минималистичный, интерактивный интерфейс", 
       image: new URL('/projects/p1.jpg', import.meta.url).href,
-      fullDesc: "Официальный сайт архитектурного бюро Rowelltz Arch. Минималистичный, современный и интерактивный веб-ресурс, демонстрирующий портфолио бюро и предоставляющий удобные способы связи с командой.",
+      fullDesc: "Официальный сайт архитектурного бюро Rowelltz Arch...",
       stack: ["React", "Tailwind 4", "Framer Motion"],
       link: "https://rowelltz-arch.ru/"
     },
@@ -86,21 +91,18 @@ function Projects() {
       link: "https://github.com/v01dedknight/web-layout-basics"
     },
   ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const nextProject = () => {
-    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+// Management functions
+  const nextProject = (): void => {
+    setCurrentIndex((prev: number) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
-  const prevProject = () => {
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  const prevProject = (): void => {
+    setCurrentIndex((prev: number) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
   useEffect(() => {
     if (!isPaused) {
-      const interval = setInterval(() => {
+      const interval: ReturnType<typeof setInterval> = setInterval(() => {
         nextProject();
       }, 5000);
       return () => clearInterval(interval);
@@ -120,12 +122,12 @@ function Projects() {
                 animationDuration: '5000ms',
                 animationTimingFunction: 'linear',
                 animationFillMode: 'forwards',
-                animationPlayState: isPaused ? 'paused' : 'running'
+                animationPlayState: (isPaused ? 'paused' : 'running') as React.CSSProperties['animationPlayState']
             }}
           />
         </div>
 
-        {/* Slide container - Increased height for mobile devices */}
+        {/* Slide container with event handlers */}
         <div 
           className="relative h-[500px] sm:h-[450px] w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/5"
           onMouseEnter={() => setIsPaused(true)}
@@ -135,7 +137,7 @@ function Projects() {
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] h-full"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {projects.map((project, index) => (
+            {projects.map((project: Project, index: number) => (
               <div key={index} className="min-w-full relative h-full group">
                 <img 
                   src={project.image} 
@@ -163,18 +165,26 @@ function Projects() {
           </div>
         </div>
 
-        {/* Navigation is hidden on small screens for clarity, or reduced */}
+        {/* Pagination */}
         <div className="flex justify-center gap-4 sm:gap-6 mt-8">
-          <button onClick={prevProject} className="p-3 bg-gray-800/50 text-white rounded-full"><HiOutlineChevronLeft size={20} /></button>
+          <button onClick={prevProject} className="p-3 bg-gray-800/50 text-white rounded-full">
+            <HiOutlineChevronLeft size={20} />
+          </button>
           <div className="flex items-center gap-2">
-            {projects.map((_, i) => (
-              <button key={i} onClick={() => setCurrentIndex(i)} className={`h-1.5 rounded-full transition-all ${currentIndex === i ? 'w-8 bg-purple-500' : 'w-1.5 bg-gray-600'}`} />
+            {projects.map((_, i: number) => (
+              <button 
+                key={i} 
+                onClick={() => setCurrentIndex(i)} 
+                className={`h-1.5 rounded-full transition-all ${currentIndex === i ? 'w-8 bg-purple-500' : 'w-1.5 bg-gray-600'}`} 
+              />
             ))}
           </div>
-          <button onClick={nextProject} className="p-3 bg-gray-800/50 text-white rounded-full"><HiOutlineChevronRight size={20} /></button>
+          <button onClick={nextProject} className="p-3 bg-gray-800/50 text-white rounded-full">
+            <HiOutlineChevronRight size={20} />
+          </button>
         </div>
 
-        {/* Modal Window - Improved scrolling */}
+        {/* Modal window */}
         {selectedProject && (
           <div className="fixed inset-0 z-[110] flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md">
             <div className="bg-gray-900 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl border border-white/10 relative">
@@ -189,7 +199,7 @@ function Projects() {
               
               <div className="p-6 sm:p-8">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {selectedProject.stack.map((tech, i) => (
+                  {selectedProject.stack.map((tech: string, i: number) => (
                     <span key={i} className="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-[10px] font-bold rounded-full border border-purple-500/20 uppercase">{tech}</span>
                   ))}
                 </div>

@@ -1,38 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, JSX } from "react";
 
-function Navbar() {
-  const getMoscowTime = () =>
+function Navbar(): JSX.Element {
+  // Typing of a function's return value
+  const getMoscowTime = (): string =>
     new Date().toLocaleTimeString("ru-RU", {
       hour: "2-digit",
       minute: "2-digit",
       timeZone: "Europe/Moscow",
     });
 
-  const [time, setTime] = useState(getMoscowTime());
-  const [isWorkingHours, setIsWorkingHours] = useState(true);
+  const [time, setTime] = useState<string>(getMoscowTime());
+  const [isWorkingHours, setIsWorkingHours] = useState<boolean>(true);
 
   useEffect(() => {
-    const checkTime = () => {
+    const checkTime = (): void => {
       const moscowDate = new Date();
-      const options = { timeZone: "Europe/Moscow" };
+      // TypeScript knows the options types
+      const options: Intl.DateTimeFormatOptions = { timeZone: "Europe/Moscow" };
       const hours = moscowDate.toLocaleString("ru-RU", { ...options, hour: "2-digit", hour12: false });
       const hour = parseInt(hours, 10);
       setIsWorkingHours(hour >= 10 && hour < 18);
       setTime(getMoscowTime());
     };
 
-    // immediately upon mounting
     checkTime();
-    
-    // update every minute
-    const timer = setInterval(checkTime, 60000);
-
+    // Use ReturnType for reliability
+    const timer: ReturnType<typeof setInterval> = setInterval(checkTime, 60000);
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToFooter = () => {
+  const scrollToFooter = (): void => {
     const footer = document.querySelector("footer");
-    if (footer) footer.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Use Optional Chaining and Type Guard is not needed, since the method is standard
+    footer?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
