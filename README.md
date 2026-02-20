@@ -39,7 +39,7 @@ The project is built on **Vite**, providing instant build and hot reload (HMR).
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/v01dedknight/showcase.git](https://github.com/v01dedknight/showcase.git)
+   git clone https://github.com/v01dedknight/showcase.git
    ```
 
 2. **Install dependencies:**
