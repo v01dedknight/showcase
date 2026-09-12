@@ -1,58 +1,35 @@
-# Showcase - v01d Portfolio
+# v01d.dev — portfolio redesign
 
-[Visit the website](https://v01dedknight.github.io/showcase/)
+Полностью переработанная версия портфолио на React + TypeScript + Vite.
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-blue)
+## Что изменено
 
-**Showcase** is a high-performance developer portfolio designed with a focus on modern UX, interactivity, and clean component architecture. Now fully migrated to **TypeScript** for maximum reliability and code quality.
+- новая product-engineer подача вместо типового freelancer landing page;
+- интерактивный hero с pointer glow;
+- reveal-анимации через IntersectionObserver;
+- micro-interactions для навигации, CTA, карточек и mockup;
+- mobile navigation;
+- reduced-motion fallback;
+- обновлены SEO title / description / Open Graph metadata;
+- структура адаптирована под desktop, tablet и mobile.
 
-## Tech stack
+## Запуск
 
-The project is built on **Vite**, providing instant build and hot reload (HMR).
+```bash
+npm ci
+npm run dev
+```
 
-* **Language:** TypeScript (Strict Mode)
-* **Framework:** React.js (Functional Components, Hooks)
-* **Build Tool:** Vite (Instant HMR & Fast Build)
-* **Styling:** Tailwind CSS v4 (Next-gen CSS engine)
-* **Animations:** Framer Motion & CSS Transitions
-* **Icons:** React Icons (Lucide, FontAwesome, HeroIcons)
+Production build:
 
-## Peculiarities
+```bash
+npm run build
+```
 
-- **Type-Safe Architecture:** Centralized interfaces and strict typing for props and state, minimizing runtime errors.
-- **Dynamic Navigation:** Informational Navbar with real-time Moscow time and availability status.
-- **Interactive Showcase:** Project slider with a progress bar and detailed modal windows for each project.
-- **Glassmorphism Design:** Modern blur effects, gradients, and floating interface elements.
-- **Performance:** High Core Web Vitals scores thanks to Vite and efficient resource handling.
+В `vite.config.ts` сохранён `base: '/showcase/'` для текущего GitHub Pages deployment. Если сайт переедет на корневой домен, замените на `base: '/'`.
 
-## Features
+## Основные файлы
 
-- **Project Modals:** Detailed descriptions, technology stack, and direct links to demos.
-- **Smooth Scroll:** Programmatic navigation to the contacts section.
-- **Responsive:** Fully adaptive from mobile devices to 4K monitors.
-
-## Quick start
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/v01dedknight/showcase.git
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Check types (Optional):**
-   ```bash
-   npm run build
-   ```
-
-4. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+- `src/App.tsx` — структура, контент и интерактивность;
+- `src/index.css` — дизайн-система, responsive layout и анимации;
+- `index.html` — metadata и SEO.
